@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}
+
+        {% endblock title %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'blog/css/styles.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'blog/favicon/favicon.ico' %}"/>
+    <link rel="icon" href="{% static 'blog/favicon/favicon.ico' %}" type="image/x-icon">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <nav class="shadow sticky-top navbar navbar-expand-sm navbar-light bg-light">
+        <a class="navbar-brand" href="{% url 'blog:index' %}"><img style="width: 25px" src="{% static 'blog/favicon/favicon.ico' %}"></img></a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/">About</a>
+                </li>
+                {% comment %} <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownId">
+                            <a class="dropdown-item" href="#">Action 1</a>
+                            <a class="dropdown-item" href="#">Action 2</a>
+                        </div>
+                    </li> {% endcomment %}
+            </ul>
+            {% block sayhello %}
+            
+            {% endblock sayhello %}
+            
+
+
+        </div>
+    </nav>
+
+
+    <div class="container" id="container">
+        {% block quote %}
+        {% endblock %}
+        <!-- Content -->
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-8">
+                {% block content %}
+
+                {% endblock content %}
+                {% block form %}
+                
+                {% endblock form %}
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        {% block pagination %}
+                    
+                        {% endblock pagination %}
+                    </div>
+                    
+                </div>
+            </div>
+            <!-- Slide bar -->
+            <div class="col-sm-12 col-md-12 col-lg-4 mt-2">
+                <div class="sidebar-module sidebar-module-inset border shadow custom margin-sidebar">
+                    <h4>Comming soon...!</h4>
+                    <div>
+                        <!-- <img class="avatar mx-auto d-block border shadow" src="{% static 'blog/icons/github.svg' %}" alt=""> -->
+                        <!-- <p>Comming soon...!</p> -->
+                    </div>
+
+                </div>
+                <!-- <div class="sidebar-module border shadow custom margin-sidebar">
+                    {% block lienquan %}
+                    
+                    {% endblock lienquan %}
+                </div> -->
+                <!-- <div class="sidebar-module border shadow custom margin-sidebar">
+                    <h4>Liên hệ</h4>
+                    <ol class="list-unstyled">
+                        <li><a href="https://github.com/zumianax"><img class="icon"
+                                    src="{% static 'blog/icons/github.svg' %}" alt="">GitHub</a></li>
+                        <li><a href="https://facebook.com/vuongle1998"><img class="icon"
+                                    src="{% static 'blog/icons/facebook.png' %}" alt="">Facebook</a></li>
+                        <li><a href="https://instagram.com/vuongle1998"><img class="icon"
+                                    src="{% static 'blog/icons/instagram.png' %}" alt="">Instagram</a></li>
+                    </ol>
+                </div> -->
+
+            </div>
+            <!-- End slide bar -->
+
+        </div>
+    </div>
+    <footer class="mt-2 page-footer font-small cyan darken-3">
+        <div class="footer-copyright text-center py-3">
+            Vuong Le 2019
+        </div>
+    </footer>
+    
+    {% block scripts %}
+    
+    {% endblock scripts %}
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

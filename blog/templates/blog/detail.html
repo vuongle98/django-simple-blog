@@ -1,0 +1,38 @@
+{% extends "blog/base.html" %}
+
+{% block title %}
+    {{ post.title }}
+{% endblock title %}
+
+{% block content %}
+
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="border rounded shadow custom margin">
+            <div class="text-center">
+                <img style="width: 100%" class="img-fluid" src="{{ post.image.url }}" alt="{{ post.image }}">
+                {% comment %} <div class="caption">Hình gì đó đang ở đây</div> {% endcomment %}
+            </div>
+
+            <a href="{% url 'blog:post' post.slug %}">
+                <h3 class="title">{{ post.title }}</h3>
+            </a>
+            
+            <small>{{ post.category }} - {{ post.author }} - {{ post.created_at|date:'d-m-y h:i' }}</small>
+            
+            
+            <hr>
+            <p class="content">{{ post.content | safe }}</p>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+<!-- {% block lienquan %}
+    <h4>Bài liên quan</h4>
+    <div class="container">
+        
+    </div>
+{% endblock lienquan %}  -->
